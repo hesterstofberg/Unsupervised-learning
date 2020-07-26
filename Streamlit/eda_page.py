@@ -28,6 +28,7 @@ def introduction_to_the_eda():
                 5. Users with the most ratings have average ratings below the dataset average.  \n  \
                 6. The most popular genre is <> and the most popular subgrenre is <>  \n  \
                 7. The least popular genre is <> and the most popular subgenre is <>  \n  \
+                8. Integer scores appear to be favoured over half scores (e.g. 4.5) and occur more frequently than half scores.
                 """)
 
 def ratings_over_time():
