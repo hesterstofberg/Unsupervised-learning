@@ -1,0 +1,4 @@
+runtime: python37
+entrypoint: gunicorn -b :$PORT main:eda_recommender.py --timeout 360
+runtime_config:
+  python_version: 3
