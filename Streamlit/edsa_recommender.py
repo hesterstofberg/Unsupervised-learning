@@ -136,17 +136,17 @@ def main():
 
     if page_selection == 'Enter the realm':
         st.write(
-            "<style type='text/css'>body {background-color:#1793b8}</style>",
+            "<style type='text/css'>body {background-color:#ffffff}</style>",
             unsafe_allow_html=True)
         st.markdown(
-            "<h1 style='text-align: center; color: purple; font-size: 3.0rem; '><i>Cinematic Psychic</i> </h1>",
+            "<h1 style='text-align: center; color: #030B32; font-size: 3.0rem; '><i>Cinematic Psychic</i> </h1>",
             unsafe_allow_html=True)
         st.markdown(
-            "<h1 style='text-align: left; color: purple; font-size: 2.5rem; '><i>Welcome</i> </h1>",
+            "<h1 style='text-align: left; color: #030B32; font-size: 2.5rem; '><i>Welcome</i> </h1>",
             unsafe_allow_html=True)
-        st.image('resources/imgs/Face.jpg', use_column_width=True)
+        st.image('resources/imgs/landing_crystal_ball.jpg', use_column_width=True)
         st.markdown(
-            "<h1 style='text-align: left; color: purple; font-size: 2.1rem; '><i>Let your future movie choices be revealed...</i> </h1>",
+            "<h1 style='text-align: left; color: #030B32; font-size: 2.1rem; '><i>Let your future movie choices be revealed...</i> </h1>",
             unsafe_allow_html=True)
 
     if page_selection == 'Look into the crystal ball':
@@ -159,7 +159,7 @@ def main():
         eda_function()
 
     if page_selection == "Playground":
-        st.markdown("# For when you have a genre in mind...")
+        #st.markdown("# For when you have a genre in mind...")
         st.write(genre_flipcard(), unsafe_allow_html=True)
 
     if page_selection == "How the magic works":

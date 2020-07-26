@@ -6,7 +6,7 @@ def genre_flipcard():
 
 <!-- https://media-exp1.licdn.com/dms/image/C4D03AQGp_j0QNqtI-w/profile-displayphoto-shrink_200_200/0?e=1599091200&v=beta&t=zIdRGpvmpl1A7CRn42AnyV4gH_OLSUbq7BmHqEieiOo -->
 <!-- Movie genres -->
-<section id="team" class="pb-5">
+<section id="genre" class="pb-5">
     <div class="container">
         <h1 class="section-title  text-center">Choose your desired genre</h1>
         </div>
