@@ -81,8 +81,7 @@ def get_top_predictions_for_users(user_list):
             predicted_ratings_list.append({'userId':userID, 'movieId': movieID, 'predicted_rating': prediction_value.est})
             
     prediction_data = pd.DataFrame(predicted_ratings_list)
-    prediction_data = prediction_data.sort_values('predicted_rating', ascending=False).groupby('movieId').first().reset_index()
-
+    prediction_data = prediction_data.sort_values('predicted_rating', ascending=False)
     return prediction_data[["movieId", "predicted_rating"]].iloc[:50]
 
 
@@ -106,22 +105,20 @@ def collab_model(movie_list, top_n=10):
 
     """
     # Finding movie ID's for input
-    movieId_1 = get_movie_id_from_title(movie_list[0])
-    movieId_2 = get_movie_id_from_title(movie_list[1])
-    movieId_3 = get_movie_id_from_title(movie_list[2])
-    
+    movie_ids = []
     user_ids = []
-    user_ids = user_ids + get_top_rated_users_for_movie(movieId_1)
-    user_ids = user_ids + get_top_rated_users_for_movie(movieId_2)
-    user_ids = user_ids + get_top_rated_users_for_movie(movieId_3)
+    
+    for movie in movie_list:
+        movie_id = get_movie_id_from_title(movie)
+        user_id = get_top_rated_users_for_movie(movie_id)
+        
+        if user_id:
+            user_ids = user_ids + user_id
 
     if len(user_ids) < 1:
         raise ValueError("Unable to find matching users")
 
     filtered_predictions = get_top_predictions_for_users(user_ids)
-    filtered_predictions = filtered_predictions[
-        ~filtered_predictions.movieId.isin([movieId_1, movieId_2, movieId_3])
-    ]
 
     prediction_output = pd.merge(
         filtered_predictions, movies_df, on="movieId", how="left"
