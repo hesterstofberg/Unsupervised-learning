@@ -16,7 +16,7 @@ def genre_flipcard():
                     <div class="mainflip flip-0">
                         <div class="frontside">
                             <div class="card">
-                                    <p><img class=" img-fluid" src="https://github.com/hesterstofberg/flipcards/blob/master/genre_card.png?raw=true" alt="card image"></p>
+                                    <p><img class=" img-fluid" src="https://github.com/hesterstofberg/flipcards/blob/master/Drama.png?raw=true" alt="card image"></p>
                             </div>
                         </div>
                         <div class="backside">
@@ -44,7 +44,7 @@ def genre_flipcard():
                     <div class="mainflip">
                         <div class="frontside">
                             <div class="card">
-                                <p><img class=" img-fluid" src="https://github.com/hesterstofberg/flipcards/blob/master/genre_card.png?raw=true" alt="card image"></p>
+                                <p><img class=" img-fluid" src="https://github.com/hesterstofberg/flipcards/blob/master/Comedy.png?raw=true" alt="card image"></p>
                             </div>
                         </div>
                         <div class="backside">
@@ -72,7 +72,7 @@ def genre_flipcard():
                     <div class="mainflip">
                         <div class="frontside">
                             <div class="card">
-                                <p><img class=" img-fluid" src="https://github.com/hesterstofberg/flipcards/blob/master/genre_card.png?raw=true" alt="card image"></p>
+                                <p><img class=" img-fluid" src="https://github.com/hesterstofberg/flipcards/blob/master/Documentary.png?raw=true" alt="card image"></p>
                             </div>
                         </div>
                         <div class="backside">
@@ -100,7 +100,7 @@ def genre_flipcard():
                     <div class="mainflip">
                         <div class="frontside">
                             <div class="card">
-                                <p><img class=" img-fluid" src="https://github.com/hesterstofberg/flipcards/blob/master/genre_card.png?raw=true" alt="card image"></p>
+                                <p><img class=" img-fluid" src="https://github.com/hesterstofberg/flipcards/blob/master/Horror.png?raw=true" alt="card image"></p>
                             </div>
                         </div>
                         <div class="backside">
@@ -128,7 +128,7 @@ def genre_flipcard():
                     <div class="mainflip">
                         <div class="frontside">
                             <div class="card">
-                                <p><img class=" img-fluid" src="https://github.com/hesterstofberg/flipcards/blob/master/genre_card.png?raw=true" alt="card image"></p>
+                                <p><img class=" img-fluid" src="https://github.com/hesterstofberg/flipcards/blob/master/Animation.png?raw=true" alt="card image"></p>
                             </div>
                         </div>
                         <div class="backside">
@@ -156,7 +156,7 @@ def genre_flipcard():
                     <div class="mainflip">
                         <div class="frontside">
                             <div class="card">
-                                <p><img class=" img-fluid" src="https://github.com/hesterstofberg/flipcards/blob/master/genre_card.png?raw=true" alt="card image"></p>
+                                <p><img class=" img-fluid" src="https://github.com/hesterstofberg/flipcards/blob/master/Sci-fi.png?raw=true" alt="card image"></p>
                             </div>
                         </div>
                         <div class="backside">
