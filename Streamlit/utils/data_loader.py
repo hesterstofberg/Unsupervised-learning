@@ -12,7 +12,7 @@ from surprise import SVD
 import streamlit as st
 
 
-@st.cache
+@st.cache(show_spinner=False)
 def load_movie_titles(path_to_movies):
     """Load movie titles from database records.
 
