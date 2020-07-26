@@ -38,9 +38,9 @@ movies = pd.read_csv('resources/data/movies.csv', sep = ',',delimiter=',')
 ratings = pd.read_csv('resources/data/ratings.csv')
 movies.dropna(inplace=True)
 
-tfidf_matrix = pd.read_csv('resources/data/tfidf_df.csv')
+#tfidf_matrix = pd.read_csv('resources/data/tfidf_df.csv')
 
-cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
+#cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
 
 def data_preprocessing(subset_size):
     """Prepare data for use within Content filtering algorithm.

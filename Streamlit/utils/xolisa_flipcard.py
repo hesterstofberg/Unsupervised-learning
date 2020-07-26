@@ -58,8 +58,8 @@ def xolisa():
                                             </a>
                                         </li>
                                     </ul>
-                                    <h5 class="card-title">Model Development</h5>
-                                    <p class="card-text">mazing People doing Amazing things with data.<br/>
+                                    <h5 class="card-title">Supervisor</h5>
+                                    <p class="card-text">Amazing People doing Amazing things with data.<br/>
                                 May the Data be with Us, Amen.</p>
                                 </div>
                             </div>
