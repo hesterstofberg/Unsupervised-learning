@@ -138,8 +138,12 @@ def main():
         st.write(
             "<style type='text/css'>body {background-color:#ffffff}</style>",
             unsafe_allow_html=True)
+        st.write(
+            "<link href='http://fonts.googleapis.com/css?family=Revalia' rel='stylesheet' type='text/css'>",
+            unsafe_allow_html=True
+        )
         st.markdown(
-            "<h1 style='text-align: center; color: #030B32; font-size: 3.0rem; '><i>Cinematic Psychic</i> </h1>",
+            "<h1 style='text-align: center; color: #030B32; font-size: 3.0rem; font-family: 'Revalia', cursive; '><i>Cinematic Psychic</i> </h1>",
             unsafe_allow_html=True)
         st.markdown(
             "<h1 style='text-align: left; color: #030B32; font-size: 2.5rem; '><i>Welcome</i> </h1>",
