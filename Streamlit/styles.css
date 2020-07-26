@@ -28,9 +28,10 @@ font-size: 0.9em;
 #team .card {
     border: none;
     background: #ffffff;
+    margin-top:33px;
     margin-left: -8px;
     margin-right: -8px;
-    min-rheight: 315px;
+    min-height: 315px;
 }
 #team .list-inline-item-icon {
     padding-right: 5px;
@@ -65,12 +66,13 @@ font-size: 0.9em;
     background: #ffffff;
     margin-left: -8px;
     margin-right: -8px;
-    height: 357px;
-    max-width: 283px;
-}
+    min-height: 357px;
+    width: auto;}
 #xolisa .row{
-    margin: 0 auto;
-    font-size: 1em;}
+    margin: -40px;
+    padding-top: 40px;
+    padding-left: 5px;
+}
 
 #xolisa .paragraph{
     width: 600px;
@@ -178,10 +180,12 @@ section .section-title {
     -o-transform: rotateY(-180deg);
     -ms-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
+    width: 1;
+}
+#genre .backside {
     -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
     -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
     box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
-    width: 1;
 }
 
 .frontside,

@@ -5,7 +5,7 @@ def xolisa():
 <!-- Team -->
 <section id="xolisa" class="pb-5">
     <div class="container">
-        <h1 class="section-title text-center">meet the overlord</h1>
+        <h1 class="section-title  text-center">meet the overlord</h1>
         <p class="text-center paragraph">We're a four-person team of data scientists and web developers with
         a passion for creating and sharing robust machine learning models.
         Our resident overlord and hackathon champion, Xolisa Mzini, is charged with
@@ -13,8 +13,28 @@ def xolisa():
         our projects as efficiently as we can. Please feel free to visit our LinkedIn
         profiles and reach out to us! We look forward to hearing from you.</p>
             <div class="row">
+            <div class="row">
                     <!-- Team member -->
-        <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" >
+                    <div class="mainflip flip-1">
+                        <div class="frontside">
+                            <div class="card">
+                                    <p></p>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                   <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Team member -->
+                    <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="image-flip" >
                     <div class="mainflip flip-1">
                         <div class="frontside">
@@ -38,10 +58,28 @@ def xolisa():
                                             </a>
                                         </li>
                                     </ul>
-                                    <h5 class="card-title">Supervisor</h5>
-                                    <p class = "card-text">Amazing People doing Amazing things with data.<br/>
+                                    <h5 class="card-title">Model Development</h5>
+                                    <p class="card-text">mazing People doing Amazing things with data.<br/>
                                 May the Data be with Us, Amen.</p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Team member -->
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" >
+                    <div class="mainflip flip-1">
+                        <div class="frontside">
+                            <div class="card">
+                                    <p><img class="img-fluid" src="https://github.com/karinlouw/flipcards/blob/master/blank%20character%20card.png?raw=true" alt="card image"></p>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    </div>
                             </div>
                         </div>
                     </div>
