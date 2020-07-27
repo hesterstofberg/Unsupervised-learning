@@ -115,7 +115,7 @@ def genre_analysis():
         fig = px.line(x=top_10_genres_df.index.get_level_values(1), y=top_10_genres_df['rating'], color=top_10_genres_df.index.get_level_values(0))
         fig.update_layout(
             title = "Average Rating Over Movie Lifetime, Coloured By Genre",
-            xaxis_title="Movie Age",
+            xaxis_title="Movie Age (Years)",
             yaxis_title="Average rating",
             legend_title="Genre"
             )
