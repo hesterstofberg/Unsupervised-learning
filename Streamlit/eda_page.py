@@ -20,8 +20,7 @@ def introduction_to_the_eda():
     \nThe data used in this analysis is displayed in the tab titled 'Raw data' while the analysis of the five factors listed above are displayed in the tabs following.
     """)
     st.header("Summary of findings")
-    st.write("""Noteworthy findings and trends discovered in the data include:""")
-    st.write("""1. Evidence of a bot with over 12000 revews submitted in one month in 2019, all with a score of 5.0.  \n \
+    st.write("""Noteworthy findings and trends discovered in the data include:  \n1. Evidence of a bot with over 12000 revews submitted in one month in 2019, all with a score of 5.0.  \n \
                 2. Half scores (e.g 0.5, 3.5) appear to be less popular than whole number scores. The most common score is 4.0.  \n \
                 3. There is no visible difference in ratings submitted during the week in comparison to those submitted over the weekend.  \n \
                 4. Of all the years in which movies were released, movies released in 1995 have more reviews than any other year.  \n \
