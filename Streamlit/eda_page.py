@@ -107,22 +107,39 @@ def user_behaviour():
             because they are more experienced critics.""")
 
 def genre_analysis():
-    genres = ('Action', 'Adventure', 'Animation', 'Children', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Fantasy', 'Film-Noir',
-              'Horror', 'Musical', 'Mystery', 'Romance', 'Sci-Fi', 'Thriller', 'War', 'Western')
-    genre = st.sidebar.radio(
-                "Select a genre",genres)
-    aggregated_reviews_df = pd.read_pickle(
-        'pickled_dataframes/genres/' + genre +'_genre.pkl')
-    fig = px.line(
-        y=aggregated_reviews_df['rating']['mean'],
-        x=aggregated_reviews_df.index.get_level_values(1),
-        color=aggregated_reviews_df.index.get_level_values(0))
-    fig.update_layout(
-        title="Average Rating Over Time For " + genre + " Movies",
-        xaxis_title="Year Since Movie's Release",
-        yaxis_title="Average rating",
-        legend_title=genre + "/ Not " + genre)
-    st.plotly_chart(fig)
+    genre_overview_or_granular = st.radio("Would you like to see the overview or a granular breakout by genre?", ("Overview", "Granular breakout"))
+    if genre_overview_or_granular == "Overview":
+        st.write("""The average rating for the top 10 genres (by volume) for the first 20 years after a movie's release is shown below:""")
+        top_10_genres_df = pd.read_pickle("top_10_genres_df.pkl")
+        st.write("""Movies in the 'Documentary', 'Drama', and 'Drama | Romance' genres have consistently high ratings over time while  \
+                    movies in the 'Horror' genre have low and erratic ratings over time.""")
+        # Plot data
+        fig = px.line(x=top_10_genres_df.index.get_level_values(1), y=top_10_genres_df['rating'], color=top_10_genres_df.index.get_level_values(0))
+        fig.update_layout(
+            title = "Average Rating Over Movie Lifetime, Coloured By Genre",
+            xaxis_title="Movie Age",
+            yaxis_title="Average rating",
+            legend_title="Genre"
+            )
+        st.plotly_chart(fig)
+    elif genre_overview_or_granular == "Granular breakout":
+        st.write("""Select a genre to examine using the options list on the left hand side.""")
+        genres = ('Action', 'Adventure', 'Animation', 'Children', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Fantasy', 'Film-Noir',
+                  'Horror', 'Musical', 'Mystery', 'Romance', 'Sci-Fi', 'Thriller', 'War', 'Western')
+        genre = st.sidebar.radio(
+                    "Select a genre",genres)
+        aggregated_reviews_df = pd.read_pickle(
+            'pickled_dataframes/genres/' + genre +'_genre.pkl')
+        fig = px.line(
+            y=aggregated_reviews_df['rating']['mean'],
+            x=aggregated_reviews_df.index.get_level_values(1),
+            color=aggregated_reviews_df.index.get_level_values(0))
+        fig.update_layout(
+            title="Average Rating Over Time For " + genre + " Movies",
+            xaxis_title="Year Since Movie's Release",
+            yaxis_title="Average rating",
+            legend_title=genre + "/ Not " + genre)
+        st.plotly_chart(fig)
     
 
 def movie_budget():
