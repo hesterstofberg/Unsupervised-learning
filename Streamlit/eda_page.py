@@ -110,7 +110,7 @@ def genre_analysis():
     genre_overview_or_granular = st.radio("Would you like to see the overview or a granular breakout by genre?", ("Overview", "Granular breakout"))
     if genre_overview_or_granular == "Overview":
         st.write("""The average rating for the top 10 genres (by volume) for the first 20 years after a movie's release is shown below:""")
-        top_10_genres_df = pd.read_pickle("top_10_genres_df.pkl")
+        top_10_genres_df = pd.read_pickle(pickled_dataframes/genres/+"top_10_genres_df.pkl")
         st.write("""Movies in the 'Documentary', 'Drama', and 'Drama | Romance' genres have consistently high ratings over time while  \
                     movies in the 'Horror' genre have low and erratic ratings over time.""")
         # Plot data
