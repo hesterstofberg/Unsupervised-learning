@@ -15,8 +15,8 @@ average_rating = 3.53
 
 def introduction_to_the_eda():
     st.header("Introduction")
-    st.write("""In this section, we explore the influence of a variety of factors on movie ratings. These factors include  \t \
-    1. User behaviour,  \t2. Time (year and day of week),  \t3. Genres and subgenres,  \t4. The movie budget, and  \t5. The director of the movie.  \t \
+    st.write("""In this section, we explore the influence of a variety of factors on movie ratings. These factors include  \n \
+    1. User behaviour,  \n2. Time (year and day of week),  \n3. Genres and subgenres,  \n4. The movie budget, and  \n5. The director of the movie.  \n \
     \nThe data used in this analysis is displayed in the tab titled 'Raw data' while the analysis of the five factors listed above are displayed in the tabs following.
     """)
     st.header("Summary of findings")
