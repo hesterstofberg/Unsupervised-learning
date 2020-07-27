@@ -111,8 +111,6 @@ def genre_analysis():
     if genre_overview_or_granular == "Overview":
         st.write("""The average rating for the top 10 genres (by volume) for the first 20 years after a movie's release is shown below:""")
         top_10_genres_df = pd.read_pickle("pickled_dataframes/genres/top_10_genres_df.pkl")
-        st.write("""Movies in the 'Documentary', 'Drama', and 'Drama | Romance' genres have consistently high ratings over time while  \
-                    movies in the 'Horror' genre have low and erratic ratings over time.""")
         # Plot data
         fig = px.line(x=top_10_genres_df.index.get_level_values(1), y=top_10_genres_df['rating'], color=top_10_genres_df.index.get_level_values(0))
         fig.update_layout(
@@ -122,6 +120,8 @@ def genre_analysis():
             legend_title="Genre"
             )
         st.plotly_chart(fig)
+        st.write("""Movies in the 'Documentary', 'Drama', and 'Drama | Romance' genres have consistently high ratings over time while  \
+                    movies in the 'Horror' genre have low and erratic ratings over time.""")
     elif genre_overview_or_granular == "Granular breakout":
         st.write("""Select a genre to examine using the options list on the left hand side.""")
         genres = ('Action', 'Adventure', 'Animation', 'Children', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Fantasy', 'Film-Noir',
