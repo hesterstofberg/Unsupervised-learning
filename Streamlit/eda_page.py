@@ -21,12 +21,12 @@ def introduction_to_the_eda():
     """)
     st.header("Summary of findings")
     st.write("""Noteworthy findings and trends discovered in the data include:""")
-    st.write("""1. Evidence of a bot with over 12000 revews submitted in one month in 2019, all with a score of 5.0.  \n
-                2. Half scores (e.g 0.5, 3.5) appear to be less popular than whole number scores. The most common score is 4.0.  \n
-                3. There is no visible difference in ratings submitted during the week in comparison to those submitted over the weekend.  \n
-                4. Of all the years in which movies were released, movies released in 1995 have more reviews than any other year.   \n
-                5. Users with the most ratings have average ratings below the dataset average.  \n
-                6. By volume, the most popularly reviewed genre is drama and the most popular multi-genre are comedy dramas.  \n
+    st.write("""1. Evidence of a bot with over 12000 revews submitted in one month in 2019, all with a score of 5.0.
+                2. Half scores (e.g 0.5, 3.5) appear to be less popular than whole number scores. The most common score is 4.0.
+                3. There is no visible difference in ratings submitted during the week in comparison to those submitted over the weekend.
+                4. Of all the years in which movies were released, movies released in 1995 have more reviews than any other year.
+                5. Users with the most ratings have average ratings below the dataset average.
+                6. By volume, the most popularly reviewed genre is drama and the most popular multi-genre are comedy dramas.
                 8. Very old movies (95 years+) have erratic rating trends over time due to the low volume of reviews.
                 """)
 
