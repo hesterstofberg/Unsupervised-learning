@@ -20,15 +20,14 @@ def introduction_to_the_eda():
     \nThe data used in this analysis is displayed in the tab titled 'Raw data' while the analysis of the five factors listed above are displayed in the tabs following.
     """)
     st.header("Summary of findings")
-    st.subheader("""Noteworthy findings and trends discovered in the data include:""")
-    st.write("""1. Evidence of a bot with over 12000 revews submitted in 2019, all with a score of 5.0.  \n  \
-                2. <movie volumes>  \n  \
-                3. No visible difference in ratings submitted during the week in comparison to those submitted over the weekend.  \n  \
-                4. <another interesting point>  \n  \
+    st.subheader("""Noteworthy findings and trends discovered in the data include:  \n""")
+    st.write("""1. Evidence of a bot with over 12000 revews submitted in one month in 2019, all with a score of 5.0.  \n  \
+                2. Half scores (e.g 0.5, 3.5) appear to be less popular than whole number scores. The most common score is 4.0.  \n  \
+                3. There is no visible difference in ratings submitted during the week in comparison to those submitted over the weekend.  \n  \
+                4. Of all the years in which movies were released, movies released in 1995 have more reviews than any other year.   \n  \
                 5. Users with the most ratings have average ratings below the dataset average.  \n  \
-                6. The most popular genre is <> and the most popular subgrenre is <>  \n  \
-                7. The least popular genre is <> and the most popular subgenre is <>  \n  \
-                8. Integer scores appear to be favoured over half scores (e.g. 4.5) and occur more frequently than half scores.
+                6. By volume, the most popularly reviewed genre is drama and the most popular multi-genre are comedy dramas.  \n  \
+                8. Very old movies (95 years+) have erratic rating trends over time due to the low volume of reviews.
                 """)
 
 def ratings_over_time():
