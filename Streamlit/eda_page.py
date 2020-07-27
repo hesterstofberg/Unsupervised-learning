@@ -28,6 +28,36 @@ def introduction_to_the_eda():
                 6. By volume, the most popularly reviewed genre is drama and the most popular multi-genre are comedy dramas.  \n \
                 8. Very old movies (95 years+) have erratic rating trends over time due to the low volume of reviews.  \n \
                 """)
+def overview():
+    st.header("Datasets used")
+    st.subheader("A brief summary of the data received")
+    st.write("""The focus of this EDA was on movie rating trends and the influences thereof. Ratings are on a score from 0.5 to  \
+                5 and the frequency of each is visible below, showing users favour integer scores (even after half scores were released in 2003).""")
+    overview_reviews_per_year = pd.read_pickle("pickled_dataframes/overview/overview_reviews_per_year.pkl")
+    overview_ratings_distributions = pd.read_pickle("pickled_dataframes/overview/overview_ratings_distributions.pkl")
+    # Plot data
+    trace = go.Bar(x = data.index,
+                   y = data['movieId'],
+                   )
+
+    # Create layout
+    layout = dict(title = 'Distribution Of Ratings In Dataset'.format(ratings_df.shape[0]),
+                  xaxis = dict(title = 'Rating Value'),
+                  yaxis = dict(title = 'Number of Reviews'))
+
+    # Create plot
+    fig = go.Figure(data=[trace], layout=layout)
+    st.plotly_chart(fig)
+    st.write("""This dataset contains reviews from 1995 to 2019 for movies released between 2019 and over 100 years ago. The number of reviews submiited from 1995 - 2019 is displayed below.""")
+
+    # Create figure
+    fig = px.line(x=overview_reviews_per_year.index, y=overview_reviews_per_year['movieId'])
+    fig.update_layout(
+        title = "Number of Reviews Per Year",
+        xaxis_title="Year",
+        yaxis_title="Number of Reviews",
+    )
+    st.plotly_chart(fig)
 
 def ratings_over_time():
     st.write("""The average rating over the lifetime of every movie in the dataset is displayed below.""")
