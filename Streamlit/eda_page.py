@@ -20,13 +20,14 @@ def introduction_to_the_eda():
     \nThe data used in this analysis is displayed in the tab titled 'Raw data' while the analysis of the five factors listed above are displayed in the tabs following.
     """)
     st.header("Summary of findings")
-    st.write("""Noteworthy findings and trends discovered in the data include:  \n1. Evidence of a bot with over 12000 revews submitted in one month in 2019, all with a score of 5.0.  \n \
-                2. Half scores (e.g 0.5, 3.5) appear to be less popular than whole number scores. The most common score is 4.0.  \n \
-                3. There is no visible difference in ratings submitted during the week in comparison to those submitted over the weekend.  \n \
-                4. Of all the years in which movies were released, movies released in 1995 have more reviews than any other year.  \n \
-                5. Users with the most ratings have average ratings below the dataset average.  \n \
-                6. By volume, the most popularly reviewed genre is drama and the most popular multi-genre are comedy dramas.  \n \
-                8. Very old movies (95 years+) have erratic rating trends over time due to the low volume of reviews.  \n \
+    st.subheader("""Noteworthy findings and trends discovered in the data include:  \n""")
+    st.write("""1. Evidence of a bot with over 12000 revews submitted in one month in 2019, all with a score of 5.0.  \n  \
+                2. Half scores (e.g 0.5, 3.5) appear to be less popular than whole number scores. The most common score is 4.0.  \n  \
+                3. There is no visible difference in ratings submitted during the week in comparison to those submitted over the weekend.  \n  \
+                4. Of all the years in which movies were released, movies released in 1995 have more reviews than any other year.   \n  \
+                5. Users with the most ratings have average ratings below the dataset average.  \n  \
+                6. By volume, the most popularly reviewed genre is drama and the most popular multi-genre are comedy dramas.  \n  \
+                8. Very old movies (95 years+) have erratic rating trends over time due to the low volume of reviews.
                 """)
 def overview():
     st.header("Datasets used")
@@ -36,42 +37,92 @@ def overview():
     overview_reviews_per_year = pd.read_pickle("pickled_dataframes/overview/overview_reviews_per_year.pkl")
     overview_ratings_distributions = pd.read_pickle("pickled_dataframes/overview/overview_ratings_distributions.pkl")
     # Plot data
-    trace = go.Bar(x = overview_ratings_distributions.index,
-                   y = overview_ratings_distributions['movieId'],
+    trace = go.Bar(x = data.index,
+                   y = data['movieId'],
                    )
 
     # Create layout
-    layout = dict(title = 'Distribution Of Ratings In Dataset',
+    layout = dict(title = 'Distribution Of Ratings In Dataset'.format(ratings_df.shape[0]),
                   xaxis = dict(title = 'Rating Value'),
                   yaxis = dict(title = 'Number of Reviews'))
 
     # Create plot
     fig = go.Figure(data=[trace], layout=layout)
     st.plotly_chart(fig)
-    st.write("""This dataset contains reviews from 1995 to 2019 for movies released between 2019 and over 100 years ago. The number of reviews submitted from 1995 - 2019 is displayed below.""")
+    st.write("""This dataset contains reviews from 1995 to 2019 for movies released over 100 years ago up until 2019. The number of reviews submitted from 1995 - 2019 is displayed below.""")
 
     # Create figure
     fig = px.line(x=overview_reviews_per_year.index, y=overview_reviews_per_year['movieId'])
     fig.update_layout(
         title = "Number of Reviews Per Year",
         xaxis_title="Year",
-        yaxis_title="Number of Reviews Submitted",
+        yaxis_title="Number of Reviews",
     )
     st.plotly_chart(fig)
+    st.write("""Additional data received includes metadata related to directors, budget and cast, as well as data about movie tags, which are assigned by users.""")
 
 def ratings_over_time():
-    st.write("""The average rating over the lifetime of every movie in the dataset is displayed below.""")
-    year_on_year_changes = pd.read_pickle("pickled_dataframes/ratings_over_movie_lifetime/movies_with_more_than_20_years_of_reviews.pkl")
-    plt_d = year_on_year_changes[year_on_year_changes.index <=20 ]
-    fig = px.line(x=plt_d.index, y=plt_d['rating']['mean'])
+    st.header("Analysis of Dataset Trends Over Time")
+    st.subheader("Analysis of Movie Release Volumes and Average Rating by Year")
+    st.write("""Below we see the average rating displayed with the number of reviews submitted. It is clear that movies receive the greatest  \
+                number of reviews in their first year after release; in addition, it is clear that older movies have fewer reviews than newer   \
+                ones. With that reduction in sample size comes a more erratic and unpredictable average, as evidenced in the graph below.""")
+    average_rating_by_movie_age = pd.read_pickle("pickled_dataframes/ratings_over_time/average_rating_by_movie_age.pkl")
+
+    # Create figure object
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
+
+    # Add traces
+    fig.add_trace(go.Line(x=average_rating_by_movie_age.index, y=average_rating_by_movie_age['rating']['mean'], name="Average Rating"),
+        secondary_y=False,
+    )
+    fig.add_trace(go.Line(x=average_rating_by_movie_age.index, y=average_rating_by_movie_age['rating']['count'], name = "Number of Movies Released"),
+        secondary_y=True,
+    )
+
+    # Set y-axes titles
+    fig.update_yaxes(title_text="Average Rating", secondary_y=False)
+    fig.update_yaxes(title_text="Number of Reviews Submitted", secondary_y=True)
+
+    # Add a title and an x-axis label
     fig.update_layout(
-        title = "Average Rating By Year From First Review For The First 20 Years",
-        xaxis_title="Year Since Movie's First Review",
-        yaxis_title="Average rating",
+        title = "Average Rating and Number of Reviews Submitted Over Movie Lifetime",
+        xaxis_title="Age of Movie",
     )
     st.plotly_chart(fig)
-    st.write("""In the figure above, it is clear that, on average, the average rating for movies does show a downward trend.  \
-                From this pattern we can conclude that most older movies are less likely to be well-reviewed as more recent movies.""")
+    st.write("""We know that, although common, movies are not always reviewed in the same year that they are released. The graph below is helpful  \
+                to explore the number of reviews submitted for each release year. This graph should be examined while remembering that the internet became  \
+                popular in the mid to late nineties, which partly explains the explosion in review volume. Toggle the button to include data about the number  \
+                of movies released over the same number of years.""")
+    reviews_per_year = pd.read_pickle("pickled_dataframes/ratings_over_time/reviews_per_year.pkl")
+    movies_released_year = pd.read_pickle("pickled_dataframes/ratings_over_time/movies_released_year.pkl")
+    review_count_by_release_year = pd.read_pickle("pickled_dataframes/ratings_over_time/review_count_by_release_year.pkl")
+    show_reviews_per_year = st.radio("Include the total number of reviews per year?", ("No", "Yes"))
+
+    # Create figure
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
+    # Add traces
+    if show_reviews_per_year == "Yes":
+        fig.add_trace(go.Line(x=reviews_per_year.index, y=reviews_per_year['movieId'], name="Number of Reviews Per Year"),
+                      secondary_y=False,
+                      )
+    fig.add_trace(go.Line(x=review_count_by_release_year.index, y=review_count_by_release_year['movieId'], name="Number of Reviews Per Release Year"),
+        secondary_y=False,
+    )
+
+    fig.add_trace(go.Line(x=movies_released_year.index, y=movies_released_year['movieId'], name = "Number of Movies Released"),
+        secondary_y=True,
+    )
+    # Set y-axes titles
+    fig.update_yaxes(title_text="Number of Reviews", secondary_y=False)
+    fig.update_yaxes(title_text="Number of Movies Released", secondary_y=True)
+
+    # Add a title and an x-axis label
+    fig.update_layout(
+        title = "Number of Movies Released Per Year vs The Number of Reviews For Each Release Year",
+        xaxis_title="Year",
+    )
+    st.plotly_chart(fig)
 
 def user_behaviour():
     st.write("""Here we share insights related to user behaviour and its influence on the movie ratings. These insights result  \
@@ -139,18 +190,18 @@ def genre_analysis():
     genre_overview_or_granular = st.radio("Would you like to see the overview or a granular breakout by genre?", ("Overview", "Granular breakout"))
     if genre_overview_or_granular == "Overview":
         st.write("""The average rating for the top 10 genres (by volume) for the first 20 years after a movie's release is shown below:""")
-        top_10_genres_df = pd.read_pickle("pickled_dataframes/genres/top_10_genres_df.pkl")
+        top_10_genres_df = pd.read_pickle("top_10_genres_df.pkl")
+        st.write("""Movies in the 'Documentary', 'Drama', and 'Drama | Romance' genres have consistently high ratings over time while  \
+                    movies in the 'Horror' genre have low and erratic ratings over time.""")
         # Plot data
         fig = px.line(x=top_10_genres_df.index.get_level_values(1), y=top_10_genres_df['rating'], color=top_10_genres_df.index.get_level_values(0))
         fig.update_layout(
             title = "Average Rating Over Movie Lifetime, Coloured By Genre",
-            xaxis_title="Movie Age (Years)",
+            xaxis_title="Movie Age",
             yaxis_title="Average rating",
             legend_title="Genre"
             )
         st.plotly_chart(fig)
-        st.write("""Movies in the 'Documentary', 'Drama', and 'Drama | Romance' genres have consistently high ratings over time while  \
-                    movies in the 'Horror' genre have low and erratic ratings over time.""")
     elif genre_overview_or_granular == "Granular breakout":
         st.write("""Select a genre to examine using the options list on the left hand side.""")
         genres = ('Action', 'Adventure', 'Animation', 'Children', 'Comedy', 'Crime', 'Documentary', 'Drama', 'Fantasy', 'Film-Noir',
@@ -169,10 +220,6 @@ def genre_analysis():
             yaxis_title="Average rating",
             legend_title=genre + "/ Not " + genre)
         st.plotly_chart(fig)
-    
-
-def movie_budget():
-    pass
 
 def director_analysis():
     pass
