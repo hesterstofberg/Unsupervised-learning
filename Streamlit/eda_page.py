@@ -55,7 +55,7 @@ def overview():
     fig.update_layout(
         title = "Number of Reviews Per Year",
         xaxis_title="Year",
-        yaxis_title="Number of Reviews",
+        yaxis_title="Number of Reviews Submitted",
     )
     st.plotly_chart(fig)
 
