@@ -220,6 +220,10 @@ def genre_analysis():
             yaxis_title="Average rating",
             legend_title=genre + "/ Not " + genre)
         st.plotly_chart(fig)
+    
+
+def movie_budget():
+    pass
 
 def director_analysis():
     pass
