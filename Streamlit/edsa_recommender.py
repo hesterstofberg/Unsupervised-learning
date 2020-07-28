@@ -151,14 +151,16 @@ def main():
 
     if page_selection == 'Look into the crystal ball':
         st.write('# Exploratory Data Analysis :crystal_ball:')
-        switcher = {'Introduction to the EDA': eda_page.introduction_to_the_eda,'Overview': eda_page.overview, 'Analysis of Ratings Over Time': eda_page.ratings_over_time, 'Analysis of User Behaviour': eda_page.user_behaviour, 'Analysis of Performance by Genre': eda_page.genre_analysis} #, 'Influence of Directors on Ratings': eda_page.director_analysis}
+        switcher = {'Introduction to the EDA': eda_page.introduction_to_the_eda,'Overview': eda_page.overview,
+                    'Analysis of Ratings Over Time': eda_page.ratings_over_time, 'Analysis of User Behaviour': eda_page.user_behaviour,
+                    'Analysis of Performance by Genre': eda_page.genre_analysis} #, 'Influence of Directors on Ratings': eda_page.director_analysis}
         eda_categories = list(switcher.keys())
         eda_selection = st.selectbox('Select a category of analysis to learn more about',eda_categories)
         eda_function = switcher.get(eda_selection)
         eda_function()
 
     if page_selection == "Playground":
-        #st.markdown("# For when you have a genre in mind...")
+        st.header("Come one, come all! Leave your fate to chance by opting to randomly select a movie by its genre instead:")
         st.write(genre_flipcard(), unsafe_allow_html=True)
 
     if page_selection == "How the magic works":
