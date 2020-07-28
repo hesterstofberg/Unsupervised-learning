@@ -114,7 +114,7 @@ def ratings_over_time():
     )
     # Set y-axes titles
     fig.update_yaxes(title_text="Number of Reviews", secondary_y=False)
-    fig.update_yaxes(title_text="Number of Movies Released", secondary_y=True)
+    fig.update_yaxes(title_text="Number of Movies", secondary_y=True)
 
     # Add a title and an x-axis label
     fig.update_layout(
