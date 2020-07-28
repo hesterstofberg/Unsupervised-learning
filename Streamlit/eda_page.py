@@ -48,7 +48,7 @@ def overview():
     # Create plot
     fig = go.Figure(data=[trace], layout=layout)
     st.plotly_chart(fig)
-    st.write("""This dataset contains reviews from 1995 to 2019 for movies released between 2019 and over 100 years ago. The number of reviews submiited from 1995 - 2019 is displayed below.""")
+    st.write("""This dataset contains reviews from 1995 to 2019 for movies released between 2019 and over 100 years ago. The number of reviews submitted from 1995 - 2019 is displayed below.""")
 
     # Create figure
     fig = px.line(x=overview_reviews_per_year.index, y=overview_reviews_per_year['movieId'])
