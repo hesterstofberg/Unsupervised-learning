@@ -16,11 +16,11 @@ average_rating = 3.53
 def introduction_to_the_eda():
     st.header("Introduction")
     st.write("""In this section, we explore the influence of a variety of factors on movie ratings. These factors include  \n \
-    1. User behaviour,  \n2. Time (year and day of week),  \n3. Genres and subgenres,  \n4. The movie budget, and  \n5. The director of the movie.  \n \
-    \nThe data used in this analysis is displayed in the tab titled 'Raw data' while the analysis of the five factors listed above are displayed in the tabs following.
+    1. User behaviour,  \n2. Time (year and day of the week),  \n3. Genres and subgenres,  \n4. The movie budget, and  \n5. The director of the movie.  \n \
+    \nThe data used in this analysis is displayed in the tab titled 'Raw data' while the analysis of the five factors listed above is displayed in the tabs following.
     """)
     st.header("Summary of findings")
-    st.write("""Noteworthy findings and trends discovered in the data include:  \n1. Evidence of a bot with over 12000 revews submitted in one month in 2019, all with a score of 5.0.  \n  \
+    st.write("""Noteworthy findings and trends discovered in the data include:  \n1. Evidence of a bot with over 12000 reviews submitted in one month in 2019, all with a score of 5.0.  \n  \
                 2. Half scores (e.g 0.5, 3.5) appear to be less popular than whole number scores. The most common score is 4.0.  \n  \
                 3. There is no visible difference in ratings submitted during the week in comparison to those submitted over the weekend.  \n  \
                 4. Of all the years in which movies were released, movies released in 1995 have more reviews than any other year.   \n  \
@@ -125,7 +125,7 @@ def ratings_over_time():
 
 def user_behaviour():
     st.write("""Here we share insights related to user behaviour and its influence on the movie ratings. These insights result  \
-    from examining the relationship between volume of reviews and average rating for each user, as well as how user reviews  \
+    from examining the relationship between the volume of reviews and average rating for each user, as well as how user reviews  \
     change over time as the user becomes more seasoned critics.  \n  \
     Below we can see the relationship between the total number of user reviews and the user's average rating:""")
 
