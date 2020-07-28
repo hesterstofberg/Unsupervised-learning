@@ -139,7 +139,7 @@ def person_flipcard():
                                         </li>
                                     </ul>
                                     <h5 class="card-title">Web App Development</h5>
-                                    <p class="card-text">Drawing inspiration from nature to enhance story telling abilities</p>
+                                    <p class="card-text">Drawing inspiration from nature to enhance storytelling abilities.</p>
                                 </div>
                             </div>
                         </div>

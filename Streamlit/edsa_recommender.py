@@ -182,9 +182,9 @@ def main():
 
         if option == "Why is it useful?":
             st.markdown("# Why is it useful?")
-            st.write("Today you can find recommender systems almost everywhere, and they’re likely to play an even larger role in the future under the likeness of personal assistants, such as Siri (developed by Apple), Amazon Alexa, Google Home, or some other artificial-intelligence–based digital assistant. The drivers for users and companies to adopt recommender systems are different but complementary:")
+            st.write("Today you can find recommender systems almost everywhere, and they’re likely to play an even larger role in the future under the likeness of personal assistants, such as Siri (developed by Apple), Amazon Alexa, Google Home, or some other artificial-intelligence-based digital assistant. The drivers for users and companies to adopt recommender systems are different but complementary:")
             st.write("*** Users:** users have a strong motivation to reduce the complexity of the modern world (regardless of whether the issue is finding the right product or a place to eat) and avoid information overload.")
-            st.write("*** Companies:** companies need recommender to systems provide a practical way to communicate in a personalized way with their customers and successfully push sales.")
+            st.write("*** Companies:** companies need recommender systems to provide a practical way to communicate in a personalized way with their customers and successfully push sales.")
             st.image("resources/imgs/recommendation.jpg", caption='Recommendation systems can assist users in making decisions and increase revenue for companies.', use_column_width=True)
         
 
@@ -247,7 +247,7 @@ def main():
 
             if example == "Takealot":
                 st.markdown("### Takealot")
-                st.write("Takealot uses data from its approximately 1.9 million users to identify which items are usually bought together and makes recommendations based on that. The recommendations in takealot.com are provided on the basis of explicitly provided ratings, buying behaviour, and browsing history.")
+                st.write("Takealot uses data from its approximately 1.9 million users to identify which items are usually bought together and makes recommendations based on that. The recommendations in takealot.com are provided based on explicitly provided ratings, buying behaviour, and browsing history.")
                 st.image(
                     "resources/imgs/takealot.png",
                     caption='Takealot will suggest other items based on the item you are interested in.',
@@ -259,7 +259,7 @@ def main():
                     "Linkedin utilises data from your past experience, current job titles and endorsements to suggest probable jobs to you.")
                 st.image(
                     "resources/imgs/linkedin.png",
-                    caption='Linkedin uses multiple variables to suggest relevant jobs to their users.',
+                    caption='Linkedin uses multiple variables to suggest relevant jobs to its users.',
                     use_column_width=True)
 
             if example == "Netflix":
