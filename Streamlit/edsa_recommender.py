@@ -125,6 +125,9 @@ def main():
                     st.title("We think you'll like:")
                     for i, j in enumerate(top_recommendations):
                         st.subheader(str(i + 1) + '. ' + j)
+                except ValueError as e:
+                    st.error("Please choose a different selection of movies \
+                        for a recommendation.")
                 except BaseException as e:
                     logger.exception(e)
                     st.error("Oops! Looks like this algorithm doesn't work.\

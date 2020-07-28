@@ -32,6 +32,8 @@ import pandas as pd
 import streamlit as st
 from utils.data_loader import load_movies, load_ratings, load_predictions, load_pickled_SVD
 
+from recommenders.content_based import content_model
+
 # Importing data
 movies_df = load_movies()
 
@@ -107,7 +109,7 @@ def collab_model(movie_list, top_n=10):
     # Finding movie ID's for input
     movie_ids = []
     user_ids = []
-    
+
     for movie in movie_list:
         movie_id = get_movie_id_from_title(movie)
         user_id = get_top_rated_users_for_movie(movie_id)
@@ -116,7 +118,7 @@ def collab_model(movie_list, top_n=10):
             user_ids = user_ids + user_id
 
     if len(user_ids) < 1:
-        raise ValueError("Unable to find matching users")
+        return content_model(movie_list, top_n)
 
     filtered_predictions = get_top_predictions_for_users(user_ids)
 
