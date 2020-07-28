@@ -160,7 +160,6 @@ def main():
         eda_function()
 
     if page_selection == "Playground":
-        st.header("Come one, come all! Leave your fate to chance by opting to randomly select a movie by its genre instead:")
         st.write(genre_flipcard(), unsafe_allow_html=True)
 
     if page_selection == "How the magic works":
