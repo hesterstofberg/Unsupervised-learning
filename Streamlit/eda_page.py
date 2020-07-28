@@ -37,8 +37,8 @@ def overview():
     overview_reviews_per_year = pd.read_pickle("pickled_dataframes/overview/overview_reviews_per_year.pkl")
     overview_ratings_distributions = pd.read_pickle("pickled_dataframes/overview/overview_ratings_distributions.pkl")
     # Plot data
-    trace = go.Bar(x = data.index,
-                   y = data['movieId'],
+    trace = go.Bar(x = overview_ratings_distributions.index,
+                   y = overview_ratings_distributions['movieId'],
                    )
 
     # Create layout
@@ -82,7 +82,7 @@ def ratings_over_time():
 
     # Set y-axes titles
     fig.update_yaxes(title_text="Average Rating", secondary_y=False)
-    fig.update_yaxes(title_text="Number of Reviews Submitted", secondary_y=True)
+    fig.update_yaxes(title_text="Number of Reviews", secondary_y=True)
 
     # Add a title and an x-axis label
     fig.update_layout(
@@ -110,7 +110,7 @@ def ratings_over_time():
         secondary_y=False,
     )
 
-    fig.add_trace(go.Line(x=movies_released_year.index, y=movies_released_year['movieId'], name = "Number of Movies Released"),
+    fig.add_trace(go.Line(x=movies_released_year.index, y=movies_released_year['movieId'], name = "Number of Movies"),
         secondary_y=True,
     )
     # Set y-axes titles
@@ -190,7 +190,7 @@ def genre_analysis():
     genre_overview_or_granular = st.radio("Would you like to see the overview or a granular breakout by genre?", ("Overview", "Granular breakout"))
     if genre_overview_or_granular == "Overview":
         st.write("""The average rating for the top 10 genres (by volume) for the first 20 years after a movie's release is shown below:""")
-        top_10_genres_df = pd.read_pickle("top_10_genres_df.pkl")
+        top_10_genres_df = pd.read_pickle(""pickled_dataframes/genres/top_10_genres_df.pkl")
         st.write("""Movies in the 'Documentary', 'Drama', and 'Drama | Romance' genres have consistently high ratings over time while  \
                     movies in the 'Horror' genre have low and erratic ratings over time.""")
         # Plot data
