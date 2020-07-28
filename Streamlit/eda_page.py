@@ -36,12 +36,12 @@ def overview():
     overview_reviews_per_year = pd.read_pickle("pickled_dataframes/overview/overview_reviews_per_year.pkl")
     overview_ratings_distributions = pd.read_pickle("pickled_dataframes/overview/overview_ratings_distributions.pkl")
     # Plot data
-    trace = go.Bar(x = data.index,
-                   y = data['movieId'],
+    trace = go.Bar(x = overview_ratings_distributions.index,
+                   y = overview_ratings_distributions['movieId'],
                    )
 
     # Create layout
-    layout = dict(title = 'Distribution Of Ratings In Dataset'.format(ratings_df.shape[0]),
+    layout = dict(title = 'Distribution Of Ratings In Dataset',
                   xaxis = dict(title = 'Rating Value'),
                   yaxis = dict(title = 'Number of Reviews'))
 
