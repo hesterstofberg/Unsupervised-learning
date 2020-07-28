@@ -101,10 +101,6 @@ def ratings_over_time():
     # Create figure
     fig = make_subplots(specs=[[{"secondary_y": True}]])
     # Add traces
-    if show_reviews_per_year == "Yes":
-        fig.add_trace(go.Line(x=reviews_per_year.index, y=reviews_per_year['movieId'], name="Number of Reviews Per Year"),
-                      secondary_y=False,
-                      )
     fig.add_trace(go.Line(x=review_count_by_release_year.index, y=review_count_by_release_year['movieId'], name="Number of Reviews Per Release Year"),
         secondary_y=False,
     )
@@ -112,6 +108,10 @@ def ratings_over_time():
     fig.add_trace(go.Line(x=movies_released_year.index, y=movies_released_year['movieId'], name = "Number of Movies"),
         secondary_y=True,
     )
+    if show_reviews_per_year == "Yes":
+        fig.add_trace(go.Line(x=reviews_per_year.index, y=reviews_per_year['movieId'], name="Number of Reviews Per Year"),
+                      secondary_y=False,
+                     )
     # Set y-axes titles
     fig.update_yaxes(title_text="Number of Reviews", secondary_y=False)
     fig.update_yaxes(title_text="Number of Movies", secondary_y=True)
@@ -219,10 +219,6 @@ def genre_analysis():
             yaxis_title="Average rating",
             legend_title=genre + "/ Not " + genre)
         st.plotly_chart(fig)
-    
-
-def movie_budget():
-    pass
 
 def director_analysis():
     pass
