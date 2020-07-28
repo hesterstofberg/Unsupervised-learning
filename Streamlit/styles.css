@@ -79,6 +79,11 @@ font-size: 0.9em;
     width: 600px;
     padding-bottom: 30px;
 }
+
+#genre .paragraph{
+    width: 600px;
+    padding-bottom: 30px;
+}
 #genre .card {
     border: none;
     background: #ffffff;
