@@ -49,7 +49,7 @@ def overview():
     # Create plot
     fig = go.Figure(data=[trace], layout=layout)
     st.plotly_chart(fig)
-    st.write("""This dataset contains reviews from 1995 to 2019 for movies released between 2019 and over 100 years ago. The number of reviews submiited from 1995 - 2019 is displayed below.""")
+    st.write("""This dataset contains reviews from 1995 to 2019 for movies released over 100 years ago up until 2019. The number of reviews submitted from 1995 - 2019 is displayed below.""")
 
     # Create figure
     fig = px.line(x=overview_reviews_per_year.index, y=overview_reviews_per_year['movieId'])
@@ -59,20 +59,70 @@ def overview():
         yaxis_title="Number of Reviews",
     )
     st.plotly_chart(fig)
+    st.write("""Additional data received includes metadata related to directors, budget and cast, as well as data about movie tags, which are assigned by users.""")
 
 def ratings_over_time():
-    st.write("""The average rating over the lifetime of every movie in the dataset is displayed below.""")
-    year_on_year_changes = pd.read_pickle("pickled_dataframes/ratings_over_movie_lifetime/movies_with_more_than_20_years_of_reviews.pkl")
-    plt_d = year_on_year_changes[year_on_year_changes.index <=20 ]
-    fig = px.line(x=plt_d.index, y=plt_d['rating']['mean'])
+    st.header("Analysis of Dataset Trends Over Time")
+    st.subheader("Analysis of Movie Release Volumes and Average Rating by Year")
+    st.write("""Below we see the average rating displayed with the number of reviews submitted. It is clear that movies receive the greatest  \
+                number of reviews in their first year after release; in addition, it is clear that older movies have fewer reviews than newer   \
+                ones. With that reduction in sample size comes a more erratic and unpredictable average, as evidenced in the graph below.""")
+    average_rating_by_movie_age = pd.read_pickle("pickled_dataframes/ratings_over_time/average_rating_by_movie_age.pkl")
+
+    # Create figure object
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
+
+    # Add traces
+    fig.add_trace(go.Line(x=average_rating_by_movie_age.index, y=average_rating_by_movie_age['rating']['mean'], name="Average Rating"),
+        secondary_y=False,
+    )
+    fig.add_trace(go.Line(x=average_rating_by_movie_age.index, y=average_rating_by_movie_age['rating']['count'], name = "Number of Movies Released"),
+        secondary_y=True,
+    )
+
+    # Set y-axes titles
+    fig.update_yaxes(title_text="Average Rating", secondary_y=False)
+    fig.update_yaxes(title_text="Number of Reviews Submitted", secondary_y=True)
+
+    # Add a title and an x-axis label
     fig.update_layout(
-        title = "Average Rating By Year From First Review For The First 20 Years",
-        xaxis_title="Year Since Movie's First Review",
-        yaxis_title="Average rating",
+        title = "Average Rating and Number of Reviews Submitted Over Movie Lifetime",
+        xaxis_title="Age of Movie",
     )
     st.plotly_chart(fig)
-    st.write("""In the figure above, it is clear that, on average, the average rating for movies does show a downward trend.  \
-                From this pattern we can conclude that most older movies are less likely to be well-reviewed as more recent movies.""")
+    st.write("""We know that, although common, movies are not always reviewed in the same year that they are released. The graph below is helpful  \
+                to explore the number of reviews submitted for each release year. This graph should be examined while remembering that the internet became  \
+                popular in the mid to late nineties, which partly explains the explosion in review volume. Toggle the button to include data about the number  \
+                of movies released over the same number of years.""")
+    reviews_per_year = pd.read_pickle("pickled_dataframes/ratings_over_time/reviews_per_year.pkl")
+    movies_released_year = pd.read_pickle("pickled_dataframes/ratings_over_time/movies_released_year.pkl")
+    review_count_by_release_year = pd.read_pickle("pickled_dataframes/ratings_over_time/review_count_by_release_year.pkl")
+    show_reviews_per_year = st.radio("Include the total number of reviews per year?", ("No", "Yes"))
+
+    # Create figure
+    fig = make_subplots(specs=[[{"secondary_y": True}]])
+    # Add traces
+    if show_reviews_per_year == "Yes":
+        fig.add_trace(go.Line(x=reviews_per_year.index, y=reviews_per_year['movieId'], name="Number of Reviews Per Year"),
+                      secondary_y=False,
+                      )
+    fig.add_trace(go.Line(x=review_count_by_release_year.index, y=review_count_by_release_year['movieId'], name="Number of Reviews Per Release Year"),
+        secondary_y=False,
+    )
+
+    fig.add_trace(go.Line(x=movies_released_year.index, y=movies_released_year['movieId'], name = "Number of Movies Released"),
+        secondary_y=True,
+    )
+    # Set y-axes titles
+    fig.update_yaxes(title_text="Number of Reviews", secondary_y=False)
+    fig.update_yaxes(title_text="Number of Movies Released", secondary_y=True)
+
+    # Add a title and an x-axis label
+    fig.update_layout(
+        title = "Number of Movies Released Per Year vs The Number of Reviews For Each Release Year",
+        xaxis_title="Year",
+    )
+    st.plotly_chart(fig)
 
 def user_behaviour():
     st.write("""Here we share insights related to user behaviour and its influence on the movie ratings. These insights result  \
