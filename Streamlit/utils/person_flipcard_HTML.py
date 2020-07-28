@@ -39,7 +39,7 @@ def person_flipcard():
                                             </a>
                                         </li>
                                     </ul>
-                                    <h5 class="card-title">Model Development</h5>
+                                    <h5 class="card-title">Data Analysis</h5>
                                     <p class = "card-text">Currently working on growing a third eye to maximise debugging efficiency.</p>
                                 </div>
                             </div>
