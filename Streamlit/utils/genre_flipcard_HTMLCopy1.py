@@ -9,6 +9,8 @@ def genre_flipcard():
 <section id="genre" class="pb-5">
     <div class="container">
         <h1 class="section-title  text-center">Choose your desired genre</h1>
+        <p>Come one, come all! Leave your fate to chance by opting to
+        randomly select a movie by its genre instead:"</p>
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4">
