@@ -3,7 +3,7 @@ streamlit==0.64.0
 numpy==1.19.1
 plotly==4.9.0
 utils==1.0.1
-joblib==0.16.0
+joblib==1.2.0
 scikit-learn==0.23.1
 scipy==1.5.2
 scikit-surprise==1.1.1
